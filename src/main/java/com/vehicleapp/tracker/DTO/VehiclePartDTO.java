@@ -16,7 +16,11 @@ public class VehiclePartDTO {
 
     private long id;
 
+    private String vehicle;
+
     private String partName;
+
+    private String partType;
 
     private BigDecimal price;
 

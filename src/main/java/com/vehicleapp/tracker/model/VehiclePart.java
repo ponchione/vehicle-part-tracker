@@ -20,8 +20,14 @@ public class VehiclePart {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
+    @Column(name = "vehicle")
+    private String vehicle;
+
     @Column(name = "part")
     private String partName;
+
+    @Column(name = "type")
+    private String partType;
 
     @Column(name = "price")
     private BigDecimal price;
