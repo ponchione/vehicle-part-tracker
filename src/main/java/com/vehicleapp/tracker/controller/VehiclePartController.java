@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 public class VehiclePartController {
 
-    private VehiclePartService service;
+    private final VehiclePartService service;
 
     @Autowired
     public VehiclePartController(final VehiclePartService vps) {
@@ -21,9 +21,8 @@ public class VehiclePartController {
     }
 
     @GetMapping(path = "/all")
-//    public ResponseEntity<List<VehiclePartDTO>> getAllParts() {
-    public void getAllParts() {
-        //return service.getAllParts();
+    public List<VehiclePartDTO> getAllPartsByVehicle() {
+        return service.getAllPartsByVehicle();
     }
 
 }

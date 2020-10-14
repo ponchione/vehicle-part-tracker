@@ -2,7 +2,10 @@ plugins {
 	id 'org.springframework.boot' version '2.3.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id 'net.ltgt.apt' version '0.20'
 }
+
+apply plugin: 'net.ltgt.apt-idea'
 
 group = 'com.vehicleapp'
 version = '0.0.1-SNAPSHOT'
@@ -19,20 +22,27 @@ configurations {
 }
 
 dependencies {
+	//JPA
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
+	//Web tools
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
-	// https://mvnrepository.com/artifact/org.mapstruct/mapstruct
-	compile group: 'org.mapstruct', name: 'mapstruct', version: '1.4.1.Final'
+	//MapStruct
+	implementation "org.mapstruct:mapstruct:1.4.1.Final"
+	annotationProcessor "org.mapstruct:mapstruct-processor:1.4.1.Final"
 
+	//Lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
+	//Dev tools
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
+	//Postgres DB
 	runtimeOnly 'org.postgresql:postgresql'
 
+	//JUnit
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
